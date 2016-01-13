@@ -1,4 +1,7 @@
 <resources>
-    <string name="app_name">Hinhchunhat</string>
+    <string name="app_name">Hinh chu nhat</string>
     <string name="action_settings">Settings</string>
+    <string name="lbChieuRong">Nhap chieu rong</string>
+    <string name="lbChieuDai">Nhap chieu dai</string>
+    <string name="lbSubmit">Thuc hien</string>
 </resources>

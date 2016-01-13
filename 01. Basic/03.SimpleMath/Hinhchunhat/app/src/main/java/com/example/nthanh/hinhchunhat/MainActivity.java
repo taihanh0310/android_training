@@ -8,6 +8,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,7 +48,51 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
+    }
+
+    public void tinhDienTich(View view){
+
+        EditText editTextChieuDai = (EditText) findViewById(R.id.txtChieuDai);
+        EditText editTextChieuRong = (EditText) findViewById(R.id.txtChieuRong);
+        TextView textViewResult = (TextView)findViewById(R.id.lbResult);
+
+        int result = this.phepNhan(editTextChieuDai.getText().toString(), editTextChieuRong.getText().toString());
+        int chuVi = this.tinhChuVi(editTextChieuDai.getText().toString(), editTextChieuRong.getText().toString());
+        textViewResult.setText("Dien tich: " + Integer.toString(result) + " | Chu Vi: " + Integer.toString(chuVi));
+    }
+
+    public int phepNhan(String txtsoA, String txtSoB){
+        int result = 0;
+        int soA = 0;
+        int soB = 0;
+        if(txtsoA != null && txtSoB != null){
+            soA = Integer.parseInt(txtsoA);
+            soB = Integer.parseInt(txtSoB);
+        }
+
+        result = soA * soB;
+        return  result;
+    }
+
+    public int tinhChuVi(String txtSoA, String txtSoB){
+        int result = 0;
+        int soA = 0;
+        int soB = 0;
+        if(txtSoA != null && txtSoB != null){
+            soA = Integer.parseInt(txtSoA);
+            soB = Integer.parseInt(txtSoB);
+        }
+
+        result = (soA + soB)*2;
+        return  result;
+    }
+
+    public String validate(String content){
+        String message = "";
+        if (content == null){
+            message = "Vui long khong de trong";
+        }
+        return  message;
     }
 }
