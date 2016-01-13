@@ -57,4 +57,11 @@ android:orientation="vertical"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/lbResult"
         android:textColor="#f8f6f6" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tim chu vi hinh tron"
+        android:id="@+id/btnTranfer"
+        android:onClick="tranfertoChuViScreen"/>
 </LinearLayout>
