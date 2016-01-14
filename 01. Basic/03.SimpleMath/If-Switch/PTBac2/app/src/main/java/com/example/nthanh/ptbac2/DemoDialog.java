@@ -17,6 +17,7 @@ public class DemoDialog extends AppCompatActivity {
 
     public void open(View view){
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setTitle("Day la title");
         alertDialogBuilder.setMessage("Are you sure,You wanted to make decision");
 
         alertDialogBuilder.setPositiveButton("yes", new DialogInterface.OnClickListener() {

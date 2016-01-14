@@ -36,4 +36,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, DemoDialog.class);
         startActivity(intent);
     }
+    public void tranferScreenKiemTraBienSoXe(View view){
+        Intent intent = new Intent(MainActivity.this, MayTinhBoTui.class);
+        startActivity(intent);
+    }
 }

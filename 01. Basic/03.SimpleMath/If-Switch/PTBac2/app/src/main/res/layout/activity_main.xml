@@ -53,7 +53,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Kiem tra so xe"
+        android:text="May Tinh Bo Tui"
         android:id="@+id/button9"
         android:layout_below="@+id/button8"
         android:layout_alignRight="@+id/button4"

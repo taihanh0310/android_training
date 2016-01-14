@@ -19,7 +19,8 @@
         <activity android:name=".ChuyenDoiNamDuongLich" />
         <activity android:name=".BangCuuChuong" />
         <activity android:name=".DoCQuaDoF" />
-        <activity android:name=".DemoDialog"></activity>
+        <activity android:name=".DemoDialog" />
+        <activity android:name=".MayTinhBoTui"></activity>
     </application>
 
 </manifest>
