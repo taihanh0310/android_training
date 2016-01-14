@@ -22,4 +22,18 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, ChuyenDoiNamDuongLich.class);
         startActivity(intent);
     }
+
+    public void tranferScreenBanCuuChuong(View view){
+        Intent intent = new Intent(MainActivity.this, BangCuuChuong.class);
+        startActivity(intent);
+    }
+    public void tranferToScreenDoCToDoF(View view){
+        Intent intent = new Intent(MainActivity.this, DoCQuaDoF.class);
+        startActivity(intent);
+    }
+
+    public void tranferToScreenDialog(View view){
+        Intent intent = new Intent(MainActivity.this, DemoDialog.class);
+        startActivity(intent);
+    }
 }

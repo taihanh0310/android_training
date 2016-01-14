@@ -16,7 +16,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".PhuongTrinhBacHai" />
-        <activity android:name=".ChuyenDoiNamDuongLich"></activity>
+        <activity android:name=".ChuyenDoiNamDuongLich" />
+        <activity android:name=".BangCuuChuong" />
+        <activity android:name=".DoCQuaDoF" />
+        <activity android:name=".DemoDialog"></activity>
     </application>
 
 </manifest>
