@@ -19,7 +19,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView lbMusicName, lbMusicTime;
     private Button btnStart, btnStop;
     private double finalTime = 0;
-    private MediaPlayer mediaPlayer;
+    //private MediaPlayer mediaPlayer;
+    MediaBackgroundMusic mediaPlayer = new MediaBackgroundMusic();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +32,10 @@ public class MainActivity extends AppCompatActivity {
         btnStart = (Button) findViewById(R.id.btnStart);
         btnStop = (Button) findViewById(R.id.btnStop);
         //set music name
-        lbMusicName.setText("Music name:" + R.raw.class.getFields()[0].getName() + ".mp3");
-
+        //lbMusicName.setText("Music name:" + R.raw.class.getFields()[0].getName() + ".mp3");
+        mediaPlayer.setPathURL("android.resource://" + getPackageName() + "/" + R.raw.song);
         //create media player
-        mediaPlayer = MediaPlayer.create(this, R.raw.song);
+        //mediaPlayer = MediaPlayer.create(this, R.raw.song);
         //set btnstart to enable
         btnStart.setEnabled(true);
 
@@ -45,14 +46,15 @@ public class MainActivity extends AppCompatActivity {
                 //start music
                 Toast.makeText(getApplicationContext(), "Playing music", Toast.LENGTH_SHORT).show();
                 //mediaPlayer.reset();
-                mediaPlayer.start();
+                //mediaPlayer.start();
                 //set time
-                finalTime = mediaPlayer.getDuration();
-                lbMusicTime.setText("Time: " + String.format("%d min, %d sec",
-                        TimeUnit.MILLISECONDS.toMinutes((long) finalTime),
-                        TimeUnit.MILLISECONDS.toSeconds((long) finalTime) -
-                                TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes((long) finalTime))));
+//                finalTime = mediaPlayer.getDuration();
+//                lbMusicTime.setText("Time: " + String.format("%d min, %d sec",
+//                        TimeUnit.MILLISECONDS.toMinutes((long) finalTime),
+//                        TimeUnit.MILLISECONDS.toSeconds((long) finalTime) -
+//                                TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes((long) finalTime))));
                 //enable pause button, stop button
+                mediaPlayer.playMusic(MainActivity.this);
                 btnStop.setEnabled(true);
                 //disable start button
                 btnStart.setEnabled(false);
@@ -63,8 +65,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Stop music", Toast.LENGTH_SHORT).show();
-                mediaPlayer.pause();
-                mediaPlayer.seekTo(0);
+//                mediaPlayer.pause();
+//                mediaPlayer.seekTo(0);
+                mediaPlayer.stopMusic();
                 btnStart.setEnabled(true);
                 btnStop.setEnabled(false);
             }
