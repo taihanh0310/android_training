@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 public class MainActivity extends AppCompatActivity {
 
     private TextView lbMusicName, lbMusicTime;
-    private Button btnStart, btnStop, btnPause;
+    private Button btnStart, btnStop;
     private double finalTime = 0;
     private MediaPlayer mediaPlayer;
 
@@ -26,19 +26,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        listRaw();
-
         lbMusicName = (TextView) findViewById(R.id.lbMusicName);
         lbMusicTime = (TextView) findViewById(R.id.lbTimeMusic);
         btnStart = (Button) findViewById(R.id.btnStart);
         btnStop = (Button) findViewById(R.id.btnStop);
-        btnPause = (Button) findViewById(R.id.btnPause);
-
         //set music name
-        lbMusicName.setText("Music name: AnhSeTotMa.mp3");
+        lbMusicName.setText("Music name:" + R.raw.class.getFields()[0].getName() + ".mp3");
 
         //create media player
-        mediaPlayer = MediaPlayer.create(this, R.raw.anhsetotma);
+        mediaPlayer = MediaPlayer.create(this, R.raw.song);
         //set btnstart to enable
         btnStart.setEnabled(true);
 
@@ -57,21 +53,9 @@ public class MainActivity extends AppCompatActivity {
                         TimeUnit.MILLISECONDS.toSeconds((long) finalTime) -
                                 TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes((long) finalTime))));
                 //enable pause button, stop button
-                btnPause.setEnabled(true);
                 btnStop.setEnabled(true);
                 //disable start button
                 btnStart.setEnabled(false);
-            }
-        });
-
-        //add event btn pause
-        btnPause.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Pause music", Toast.LENGTH_SHORT).show();
-                mediaPlayer.pause();
-                btnStart.setEnabled(true);
-                btnPause.setEnabled(false);
             }
         });
 
@@ -82,18 +66,20 @@ public class MainActivity extends AppCompatActivity {
                 mediaPlayer.pause();
                 mediaPlayer.seekTo(0);
                 btnStart.setEnabled(true);
-                btnPause.setEnabled(false);
                 btnStop.setEnabled(false);
             }
         });
     }
-
+    /*
+    * On backbutton closed app
+    * */
     @Override
     public void onBackPressed() {
         finish();
         System.exit(0);
     }
 
+    //list folder to string
     public void listRaw(){
         Field[] fields=R.raw.class.getFields();
         for(int count=0; count < fields.length; count++){

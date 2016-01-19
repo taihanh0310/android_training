@@ -46,13 +46,6 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pause"
-            android:id="@+id/btnPause"
-            android:enabled="false" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:text="Stop Music"
             android:id="@+id/btnStop"
             android:enabled="false" />
