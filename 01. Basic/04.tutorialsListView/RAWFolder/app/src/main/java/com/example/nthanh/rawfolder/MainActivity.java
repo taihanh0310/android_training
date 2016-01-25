@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.io.File;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -35,9 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
 //        myList = new ArrayList<String>();
 //        myList = getAllFileToFolder(getResources().openR)
-        Uri myUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.class);
-        Log.i("MyURL", myUri.toString());
-
+        ArrayList<Integer> dsadas = setIdRawFolder(R.raw.class.getFields());
         //Initializing variables
         mp = new MediaPlayer();
         mainList = (ListView) findViewById(R.id.listView1);
@@ -69,14 +68,26 @@ public class MainActivity extends AppCompatActivity {
         mp.release();
     }
 
-    public ArrayList getAllFileToFolder(String urlLocation){
+    public ArrayList<String> getAllFileToRawFolder(){
         ArrayList myList = new ArrayList<String>();
-        File file = new File(urlLocation);
-        File list[] = file.listFiles();
 
-        for (int i = 0; i < list.length ; i ++ ){
-            myList.add(list[i].getName());
+        Field[] fields=R.raw.class.getFields();
+
+        for (int i = 0; i < fields.length ; i ++ ){
+            myList.add(fields[i].getName());
         }
         return myList;
+    }
+
+    public ArrayList<Integer> setIdRawFolder(Field[] fields){
+
+        ArrayList<Integer> resId = new ArrayList<Integer>();
+
+        for(int count=0; count < fields.length; count++){
+            int resourceID=  fields[count].getInt(fields[count]);
+            resId.add(resourceID);
+        }
+
+        return resId;
     }
 }
