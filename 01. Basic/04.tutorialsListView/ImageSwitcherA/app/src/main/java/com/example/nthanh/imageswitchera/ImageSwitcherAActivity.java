@@ -17,7 +17,7 @@ import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.ViewSwitcher;
 
-http://www.bogotobogo.com/Android/android6ListViewSpinnerGridViewGalleryB.php#GridView
+//http://www.bogotobogo.com/Android/android6ListViewSpinnerGridViewGalleryB.php#GridView
 
 public class ImageSwitcherAActivity extends Activity implements AdapterView.OnItemSelectedListener, ViewSwitcher.ViewFactory {
 
