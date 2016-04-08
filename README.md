@@ -13,3 +13,5 @@ http://www.androidhive.info/2012/03/android-building-audio-player-tutorial/
 ### Tài liệu những bài android hay nhất
 > http://www.androidhive.info/2013/04/android-developing-flashlight-application/
 > http://android.okhelp.cz/turn-screen-on-off-android-sample-code/
+> http://www.learn-android-easily.com/2013/06/scheduling-task-using-alarm-manager.html
+> https://www.javacodegeeks.com/category/android/android-core/page/3/
